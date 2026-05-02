@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Advanced Network Sniffer Dashboard</title>
+
+    <meta http-equiv="refresh" content="3">
+
+    <style>
+
+        body {
+
+            background-color: #0f172a;
+
+            color: #e2e8f0;
+
+            font-family: Arial;
+
+            padding: 20px;
+
+        }
+
+        h1 {
+
+            text-align: center;
+
+            color: #38bdf8;
+
+        }
+
+        .card {
+
+            border: 1px solid #334155;
+
+            padding: 15px;
+
+            margin-bottom: 15px;
+
+            border-radius: 10px;
+
+            background-color: #1e293b;
+
+        }
+
+        .alert {
+
+            color: #ef4444;
+
+            font-weight: bold;
+
+        }
+
+        .normal {
+
+            color: #22c55e;
+
+        }
+
+        p {
+
+            margin: 5px 0;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>🚀 Advanced Network Sniffer Dashboard</h1>
+
+    {% for log in logs %}
+
+    <div class="card">
+
+        <p><b>TIME:</b> {{ log.time }}</p>
+
+        <p><b>SRC IP:</b> {{ log.src_ip }}</p>
+
+        <p><b>DST IP:</b> {{ log.dst_ip }}</p>
+
+        <p><b>SRC PORT:</b> {{ log.src_port }}</p>
+
+        <p><b>DST PORT:</b> {{ log.dst_port }}</p>
+
+        <p><b>PROTOCOL:</b> {{ log.protocol }}</p>
+
+        <p><b>PAYLOAD TYPE:</b> {{ log.payload_type }}</p>
+
+        <p><b>PAYLOAD:</b> {{ log.payload }}</p>
+
+        <p><b>DNS QUERY:</b> {{ log.dns_query }}</p>
+
+        <p><b>LOCATION:</b> {{ log.location }}</p>
+
+        {% if log.alert != "None" %}
+
+            <p class="alert">
+
+                ALERT: {{ log.alert }}
+
+            </p>
+
+        {% else %}
+
+            <p class="normal">
+
+                ALERT: None
+
+            </p>
+
+        {% endif %}
+
+    </div>
+
+    {% endfor %}
+
+</body>
+
+</html>
