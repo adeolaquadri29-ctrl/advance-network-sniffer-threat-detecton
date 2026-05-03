@@ -189,20 +189,6 @@ http://127.0.0.1:5000
 
 ---
 
-## 🛠️ Setup Guide
-
-### 1. Clone Repository
-
-```bash
-
-git clone https://github.com/YOUR_USERNAME/advanced-network-sniffer-threat-detection.git
-
-cd advanced-network-sniffer-threat-detection
-
-```
-
----
-
 ### 2. Install Dependencies
 
 ```bash
@@ -233,13 +219,19 @@ sudo python3 app.py
 
 ```bash
 
-ping 8.8.8.8
+ping 192.168.0.1
 
 ```
 
 ```bash
 
-curl http://example.com
+nmap -sS -A 192.168.0.1
+
+```
+
+```bash
+
+hydra-L users.txt -P passwords.txt ssh://192.168.0.1 -V
 
 ```
 
